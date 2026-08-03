@@ -1,0 +1,816 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    background: #020207;
+
+    color: #f8f3eb;
+
+    font-family: "Montserrat", sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+
+    touch-action: manipulation;
+}
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root {
+
+    --background: #020207;
+
+    --gold: #d8b875;
+
+    --gold-soft: rgba(216, 184, 117, 0.55);
+
+    --white: #f8f3eb;
+
+    --muted: #aaa4b0;
+
+}
+
+
+/* ==========================================================
+   INTRO
+========================================================== */
+
+.intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(43, 31, 63, 0.75),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(73, 37, 63, 0.25),
+            transparent 45%
+        ),
+
+        #020207;
+
+    z-index: 10;
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+
+}
+
+
+/* ==========================================================
+   SPACE
+========================================================== */
+
+.space {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,0.025),
+            transparent 55%
+        );
+
+}
+
+
+/* ==========================================================
+   STARS
+========================================================== */
+
+#stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+}
+
+.star {
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    opacity: 0;
+
+    animation:
+        starAppear 2s ease forwards,
+        starTwinkle 4s ease-in-out infinite;
+
+}
+
+
+/* ==========================================================
+   NEBULAS
+========================================================== */
+
+.nebula {
+
+    position: absolute;
+
+    width: 80vw;
+
+    height: 55vw;
+
+    max-width: 700px;
+
+    max-height: 450px;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    animation:
+        nebulaAppear 4s ease forwards,
+        nebulaMove 18s ease-in-out infinite alternate;
+
+}
+
+.nebula-one {
+
+    top: 15%;
+
+    left: -35%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(117, 79, 157, 0.25),
+            transparent 70%
+        );
+
+}
+
+.nebula-two {
+
+    right: -40%;
+
+    bottom: 5%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(155, 83, 111, 0.18),
+            transparent 70%
+        );
+
+    animation-delay: 1.5s;
+
+}
+
+
+/* ==========================================================
+   INTRO CONTENT
+========================================================== */
+
+.intro-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(88%, 430px);
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+/* ==========================================================
+   SMALL STAR
+========================================================== */
+
+.intro-star {
+
+    font-size: 22px;
+
+    color: var(--gold);
+
+    margin-bottom: 28px;
+
+    opacity: 0;
+
+    transform: scale(0.5);
+
+    animation:
+        introStar 2s 0.7s ease forwards,
+        starGlow 3s 2.7s ease-in-out infinite;
+
+}
+
+
+/* ==========================================================
+   EYEBROW
+========================================================== */
+
+.eyebrow {
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    color: var(--gold);
+
+    font-weight: 400;
+
+    opacity: 0;
+
+    animation:
+        fadeUp 1.5s 1.3s ease forwards;
+
+}
+
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 400;
+
+    font-size: clamp(
+        38px,
+        10vw,
+        58px
+    );
+
+    line-height: 0.98;
+
+    letter-spacing: -0.8px;
+
+    margin-top: 22px;
+
+    color: var(--white);
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    animation:
+        fadeUp 1.8s 1.8s ease forwards;
+
+}
+
+
+/* ==========================================================
+   SUBTITLE
+========================================================== */
+
+.subtitle {
+
+    margin-top: 25px;
+
+    max-width: 330px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 21px;
+
+    line-height: 1.35;
+
+    color: var(--muted);
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+    animation:
+        fadeUp 1.5s 3s ease forwards;
+
+}
+
+
+/* ==========================================================
+   REVEAL
+========================================================== */
+
+.reveal {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    animation:
+        fadeUp 1.5s 4.3s ease forwards;
+
+}
+
+.reveal-line {
+
+    display: block;
+
+    width: 1px;
+
+    height: 35px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+    margin-bottom: 16px;
+
+}
+
+.reveal p {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 19px;
+
+    color: #c8c0cb;
+
+}
+
+.reveal strong {
+
+    margin-top: 4px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 36px;
+
+    font-weight: 400;
+
+    font-style: italic;
+
+    color: var(--gold);
+
+    letter-spacing: 1px;
+
+}
+
+
+/* ==========================================================
+   ENTER BUTTON
+========================================================== */
+
+.enter-button {
+
+    position: relative;
+
+    margin-top: 42px;
+
+    padding: 16px 24px;
+
+    border-radius: 100px;
+
+    border: 1px solid
+        rgba(216, 184, 117, 0.45);
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(216, 184, 117, 0.10),
+            rgba(166, 100, 128, 0.08)
+        );
+
+    color: var(--white);
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    animation:
+        buttonAppear 1.5s 5.3s ease forwards;
+
+    box-shadow:
+        0 0 40px rgba(216,184,117,0.05);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease,
+        background .4s ease;
+
+}
+
+.enter-button b {
+
+    color: var(--gold);
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+}
+
+.enter-button:active {
+
+    transform:
+        scale(0.96);
+
+}
+
+.enter-button:hover {
+
+    box-shadow:
+        0 0 55px rgba(216,184,117,0.14);
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(216,184,117,0.16),
+            rgba(166,100,128,0.12)
+        );
+
+}
+
+
+/* ==========================================================
+   BOTTOM HINT
+========================================================== */
+
+.bottom-hint {
+
+    position: absolute;
+
+    bottom:
+        calc(
+            25px +
+            env(safe-area-inset-bottom)
+        );
+
+    left: 0;
+
+    right: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #5d5964;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    animation:
+        fadeIn 2s 6s ease forwards;
+
+}
+
+.hint-line {
+
+    width: 1px;
+
+    height: 22px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #706a76
+        );
+
+}
+
+
+/* ==========================================================
+   UNIVERSE
+========================================================== */
+
+.universe {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #121024,
+            #05050c 55%,
+            #020207
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+
+}
+
+.universe.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+.universe-placeholder {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+.universe-placeholder span {
+
+    color: var(--gold);
+
+    font-size: 35px;
+
+}
+
+.universe-placeholder p {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+}
+
+
+/* ==========================================================
+   INTRO EXIT
+========================================================== */
+
+.intro.exit {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+}
+
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes starAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: .7;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes starTwinkle {
+
+    0%,
+    100% {
+        opacity: .25;
+    }
+
+    50% {
+        opacity: .9;
+    }
+
+}
+
+@keyframes nebulaAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@keyframes nebulaMove {
+
+    from {
+        transform:
+            translate3d(0,0,0)
+            rotate(15deg)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(8%,5%,0)
+            rotate(25deg)
+            scale(1.08);
+    }
+
+}
+
+@keyframes introStar {
+
+    from {
+        opacity: 0;
+        transform: scale(.4);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes starGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 10px
+            rgba(216,184,117,.3);
+    }
+
+    50% {
+        text-shadow:
+            0 0 35px
+            rgba(216,184,117,.8);
+    }
+
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@keyframes buttonAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(15px)
+            scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* ==========================================================
+   DESKTOP
+========================================================== */
+
+@media (min-width: 700px) {
+
+    .intro-content {
+
+        max-width: 600px;
+
+    }
+
+    h1 {
+
+        font-size: 64px;
+
+    }
+
+    .subtitle {
+
+        font-size: 23px;
+
+    }
+
+}
