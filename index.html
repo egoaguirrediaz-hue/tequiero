@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
     <meta name="theme-color" content="#020207">
 
@@ -11,7 +14,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -19,42 +25,36 @@
 <body>
 
     <!-- =====================================================
-         BLOQUE 1 — INTRO
+         INTRO
     ====================================================== -->
 
     <section id="intro" class="intro">
 
-        <!-- Fondo -->
         <div class="space"></div>
 
-        <!-- Estrellas -->
         <div id="stars"></div>
 
-        <!-- Nebulosas -->
         <div class="nebula nebula-one"></div>
         <div class="nebula nebula-two"></div>
 
-        <!-- Contenido -->
         <div class="intro-content">
 
-            <div class="intro-star">
-                ✦
-            </div>
+            <div class="intro-star">✦</div>
 
             <p class="eyebrow">
                 PARA TI
             </p>
 
-            <h1 id="introTitle">
+            <h1>
                 Hay lugares que<br>
                 no aparecen en ningún mapa...
             </h1>
 
-            <p id="introSubtitle" class="subtitle">
+            <p class="subtitle">
                 pero existen cuando estás con la persona correcta.
             </p>
 
-            <div id="introReveal" class="reveal">
+            <div class="reveal">
 
                 <span class="reveal-line"></span>
 
@@ -69,20 +69,12 @@
             </div>
 
             <button id="enterButton" class="enter-button">
-
-                <span>
-                    Entrar al universo
-                </span>
-
-                <b>
-                    ✦
-                </b>
-
+                <span>Entrar al universo</span>
+                <b>✦</b>
             </button>
 
         </div>
 
-        <!-- Indicador -->
         <div class="bottom-hint">
 
             <span class="hint-line"></span>
@@ -97,25 +89,219 @@
 
 
     <!-- =====================================================
-         UNIVERSO — TODAVÍA VACÍO
-         Lo construiremos en el BLOQUE 2
+         UNIVERSO
     ====================================================== -->
 
-    <section id="universe" class="universe">
+    <main id="universe" class="universe">
 
-        <div class="universe-placeholder">
+        <div class="universe-stars" id="universeStars"></div>
+
+        <div class="universe-nebula nebula-purple"></div>
+        <div class="universe-nebula nebula-pink"></div>
+
+        <!-- órbitas -->
+
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
+
+
+        <!-- =================================================
+             NÚCLEO
+        ================================================== -->
+
+        <button
+            class="core"
+            data-section="nosotros"
+            aria-label="Nosotros"
+        >
+
+            <div class="core-glow"></div>
+
+            <div class="core-symbol">
+                ♥
+            </div>
 
             <span>
+                nosotros
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             PLANETA 1
+        ================================================== -->
+
+        <button
+            class="planet planet-you"
+            data-section="tu"
+            aria-label="Tú"
+        >
+
+            <span class="planet-ring"></span>
+
+            <span class="planet-body">
+                ☾
+            </span>
+
+            <span class="planet-label">
+                tú
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             PLANETA 2
+        ================================================== -->
+
+        <button
+            class="planet planet-effect"
+            data-section="provocas"
+            aria-label="Lo que provocas"
+        >
+
+            <span class="planet-ring"></span>
+
+            <span class="planet-body">
                 ✦
             </span>
 
-            <p>
-                Nuestro pequeño universo
-            </p>
+            <span class="planet-label">
+                lo que provocas
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             PLANETA 3
+        ================================================== -->
+
+        <button
+            class="planet planet-world"
+            data-section="mundo"
+            aria-label="Nuestro mundo"
+        >
+
+            <span class="planet-ring"></span>
+
+            <span class="planet-body">
+                ◉
+            </span>
+
+            <span class="planet-label">
+                nuestro mundo
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             PLANETA 4
+        ================================================== -->
+
+        <button
+            class="planet planet-future"
+            data-section="futuro"
+            aria-label="Lo que todavía no vivimos"
+        >
+
+            <span class="planet-ring"></span>
+
+            <span class="planet-body">
+                ♡
+            </span>
+
+            <span class="planet-label">
+                lo que falta vivir
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             INDICACIÓN
+        ================================================== -->
+
+        <div class="universe-message">
+
+            <span>
+                explora
+            </span>
+
+            <div class="message-line"></div>
+
+            <small>
+                toca una estrella
+            </small>
 
         </div>
 
-    </section>
+
+        <!-- =================================================
+             PANEL DE EXPLORACIÓN
+        ================================================== -->
+
+        <section
+            id="explorePanel"
+            class="explore-panel"
+        >
+
+            <button
+                id="closePanel"
+                class="close-panel"
+                aria-label="Cerrar"
+            >
+                ×
+            </button>
+
+            <div class="panel-star">
+                ✦
+            </div>
+
+            <p
+                id="panelEyebrow"
+                class="panel-eyebrow"
+            >
+                nuestro universo
+            </p>
+
+            <h2 id="panelTitle">
+                Nosotros
+            </h2>
+
+            <div class="panel-divider"></div>
+
+            <p
+                id="panelText"
+                class="panel-text"
+            >
+                Aquí comienza todo.
+            </p>
+
+            <button
+                id="panelContinue"
+                class="panel-continue"
+            >
+                seguir explorando
+                <span>→</span>
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             TRANSICIÓN
+        ================================================== -->
+
+        <div
+            id="warp"
+            class="warp"
+        ></div>
+
+    </main>
 
 
     <!-- =====================================================
@@ -127,10 +313,12 @@
         loop
         preload="auto"
     >
+
         <source
             src="assets/music/our-song.mp3"
             type="audio/mpeg"
         >
+
     </audio>
 
 
