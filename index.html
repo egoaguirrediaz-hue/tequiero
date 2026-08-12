@@ -2,327 +2,564 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <meta name="theme-color" content="#020207">
+    <title>Para ti ❤️</title>
 
-    <title>Nuestro pequeño universo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap"
-        rel="stylesheet"
-    >
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-    <link rel="stylesheet" href="css/style.css">
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    #49233d 0%,
+                    #21121e 40%,
+                    #0c090d 100%
+                );
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        /* Fondo */
+
+        .glow {
+            position: fixed;
+            width: 280px;
+            height: 280px;
+
+            background: rgba(255, 92, 148, 0.15);
+
+            filter: blur(80px);
+            border-radius: 50%;
+
+            top: 5%;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            pointer-events: none;
+        }
+
+        /* Contenedor */
+
+        .container {
+            width: 100%;
+            max-width: 430px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Corazón */
+
+        .heart {
+            font-size: 65px;
+
+            margin-bottom: 25px;
+
+            animation: heartbeat 1.7s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.18);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Título */
+
+        h1 {
+            font-size: 38px;
+
+            font-weight: 600;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 12px;
+        }
+
+        .intro {
+            color: #cdbfc8;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+        }
+
+        /* Tarjeta */
+
+        .card {
+            background: rgba(255, 255, 255, 0.07);
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            border-radius: 28px;
+
+            padding: 30px 22px;
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.45);
+        }
+
+        /* Botón */
+
+        button {
+            width: 100%;
+
+            border: none;
+
+            padding: 17px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff79a8,
+                    #dc4f85
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            box-shadow:
+                0 12px 30px rgba(220, 79, 133, 0.3);
+
+            cursor: pointer;
+
+            -webkit-tap-highlight-color: transparent;
+
+            transition: transform .2s ease;
+        }
+
+        button:active {
+            transform: scale(.96);
+        }
+
+        /* Mensaje */
+
+        .message {
+            display: none;
+
+            animation: appear .7s ease forwards;
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message .small {
+            color: #cbbec7;
+
+            font-size: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .message h2 {
+            font-size: 28px;
+
+            margin-bottom: 15px;
+        }
+
+        /* Locker */
+
+        .locker {
+            margin: 25px auto;
+
+            width: 150px;
+            height: 150px;
+
+            border-radius: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.12),
+                    rgba(255,255,255,.04)
+                );
+
+            border: 1px solid rgba(255,255,255,.15);
+
+            box-shadow:
+                inset 0 0 30px rgba(255,255,255,.03),
+                0 20px 40px rgba(0,0,0,.3);
+        }
+
+        .locker span {
+            font-size: 58px;
+
+            font-weight: 700;
+
+            color: #ff86ad;
+
+            text-shadow:
+                0 0 25px rgba(255, 134, 173, .35);
+        }
+
+        .locker-text {
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            color: #f5edf2;
+        }
+
+        .highlight {
+            color: #ff88ae;
+
+            font-weight: 700;
+        }
+
+        .footer {
+            margin-top: 25px;
+
+            font-size: 13px;
+
+            color: #9d8f99;
+
+            line-height: 1.6;
+        }
+
+        /* Corazones */
+
+        .floating-heart {
+            position: fixed;
+
+            bottom: -30px;
+
+            color: rgba(255, 130, 175, .35);
+
+            pointer-events: none;
+
+            animation: floatUp linear forwards;
+
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: .5;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    rotate(25deg);
+
+                opacity: 0;
+            }
+        }
+
+        /* Pantallas pequeñas */
+
+        @media (max-height: 700px) {
+
+            .heart {
+                font-size: 48px;
+                margin-bottom: 15px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .card {
+                padding: 24px 20px;
+            }
+
+            .locker {
+                width: 125px;
+                height: 125px;
+            }
+
+            .locker span {
+                font-size: 48px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-    <!-- =====================================================
-         INTRO
-    ====================================================== -->
+    <div class="glow"></div>
 
-    <section id="intro" class="intro">
+    <main class="container">
 
-        <div class="space"></div>
+        <div class="heart">
+            ❤️
+        </div>
 
-        <div id="stars"></div>
+        <h1>Hola, Mi amor</h1>
 
-        <div class="nebula nebula-one"></div>
-        <div class="nebula nebula-two"></div>
+        <p class="intro">
+            Tengo algo que decirte...
+            <br>
+            y esta vez es mejor que lo descubras tú.
+        </p>
 
-        <div class="intro-content">
+        <div class="card">
 
-            <div class="intro-star">✦</div>
+            <button id="openButton">
+                Abrir mi sorpresa ❤️
+            </button>
 
-            <p class="eyebrow">
-                PARA TI
-            </p>
+            <div class="message" id="message">
 
-            <h1>
-                Hay lugares que<br>
-                no aparecen en ningún mapa...
-            </h1>
-
-            <p class="subtitle">
-                pero existen cuando estás con la persona correcta.
-            </p>
-
-            <div class="reveal">
-
-                <span class="reveal-line"></span>
-
-                <p>
-                    Y yo encontré el mío.
+                <p class="small">
+                    Bueno... ya que llegaste hasta aquí 😌
                 </p>
 
-                <strong>
-                    Tú.
-                </strong>
+                <h2>
+                    Te dejé algo ❤️
+                </h2>
+
+                <div class="locker">
+                    <span>40</span>
+                </div>
+
+                <p class="locker-text">
+                    Hay una pequeña sorpresa
+                    <br>
+                    esperándote en el
+                    <br>
+                    <span class="highlight">
+                        locker 40.
+                    </span>
+                </p>
+
+                <p class="footer">
+                    No es una gran cosa...
+                    <br>
+                    pero la dejé pensando en ti. ❤️
+                </p>
 
             </div>
 
-            <button id="enterButton" class="enter-button">
-                <span>Entrar al universo</span>
-                <b>✦</b>
-            </button>
-
         </div>
-
-        <div class="bottom-hint">
-
-            <span class="hint-line"></span>
-
-            <span>
-                toca para comenzar
-            </span>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         UNIVERSO
-    ====================================================== -->
-
-    <main id="universe" class="universe">
-
-        <div class="universe-stars" id="universeStars"></div>
-
-        <div class="universe-nebula nebula-purple"></div>
-        <div class="universe-nebula nebula-pink"></div>
-
-        <!-- órbitas -->
-
-        <div class="orbit orbit-1"></div>
-        <div class="orbit orbit-2"></div>
-        <div class="orbit orbit-3"></div>
-
-
-        <!-- =================================================
-             NÚCLEO
-        ================================================== -->
-
-        <button
-            class="core"
-            data-section="nosotros"
-            aria-label="Nosotros"
-        >
-
-            <div class="core-glow"></div>
-
-            <div class="core-symbol">
-                ♥
-            </div>
-
-            <span>
-                nosotros
-            </span>
-
-        </button>
-
-
-        <!-- =================================================
-             PLANETA 1
-        ================================================== -->
-
-        <button
-            class="planet planet-you"
-            data-section="tu"
-            aria-label="Tú"
-        >
-
-            <span class="planet-ring"></span>
-
-            <span class="planet-body">
-                ☾
-            </span>
-
-            <span class="planet-label">
-                tú
-            </span>
-
-        </button>
-
-
-        <!-- =================================================
-             PLANETA 2
-        ================================================== -->
-
-        <button
-            class="planet planet-effect"
-            data-section="provocas"
-            aria-label="Lo que provocas"
-        >
-
-            <span class="planet-ring"></span>
-
-            <span class="planet-body">
-                ✦
-            </span>
-
-            <span class="planet-label">
-                lo que provocas
-            </span>
-
-        </button>
-
-
-        <!-- =================================================
-             PLANETA 3
-        ================================================== -->
-
-        <button
-            class="planet planet-world"
-            data-section="mundo"
-            aria-label="Nuestro mundo"
-        >
-
-            <span class="planet-ring"></span>
-
-            <span class="planet-body">
-                ◉
-            </span>
-
-            <span class="planet-label">
-                nuestro mundo
-            </span>
-
-        </button>
-
-
-        <!-- =================================================
-             PLANETA 4
-        ================================================== -->
-
-        <button
-            class="planet planet-future"
-            data-section="futuro"
-            aria-label="Lo que todavía no vivimos"
-        >
-
-            <span class="planet-ring"></span>
-
-            <span class="planet-body">
-                ♡
-            </span>
-
-            <span class="planet-label">
-                lo que falta vivir
-            </span>
-
-        </button>
-
-
-        <!-- =================================================
-             INDICACIÓN
-        ================================================== -->
-
-        <div class="universe-message">
-
-            <span>
-                explora
-            </span>
-
-            <div class="message-line"></div>
-
-            <small>
-                toca una estrella
-            </small>
-
-        </div>
-
-
-        <!-- =================================================
-             PANEL DE EXPLORACIÓN
-        ================================================== -->
-
-        <section
-            id="explorePanel"
-            class="explore-panel"
-        >
-
-            <button
-                id="closePanel"
-                class="close-panel"
-                aria-label="Cerrar"
-            >
-                ×
-            </button>
-
-            <div class="panel-star">
-                ✦
-            </div>
-
-            <p
-                id="panelEyebrow"
-                class="panel-eyebrow"
-            >
-                nuestro universo
-            </p>
-
-            <h2 id="panelTitle">
-                Nosotros
-            </h2>
-
-            <div class="panel-divider"></div>
-
-            <p
-                id="panelText"
-                class="panel-text"
-            >
-                Aquí comienza todo.
-            </p>
-
-            <button
-                id="panelContinue"
-                class="panel-continue"
-            >
-                seguir explorando
-                <span>→</span>
-            </button>
-
-        </section>
-
-
-        <!-- =================================================
-             TRANSICIÓN
-        ================================================== -->
-
-        <div
-            id="warp"
-            class="warp"
-        ></div>
 
     </main>
 
+    <script>
 
-    <!-- =====================================================
-         MÚSICA
-    ====================================================== -->
+        const button =
+            document.getElementById("openButton");
 
-    <audio
-        id="backgroundMusic"
-        loop
-        preload="auto"
-    >
-
-        <source
-            src="assets/music/our-song.mp3"
-            type="audio/mpeg"
-        >
-
-    </audio>
+        const message =
+            document.getElementById("message");
 
 
-    <script src="js/app.js"></script>
+        button.addEventListener("click", () => {
+
+            button.style.display = "none";
+
+            message.classList.add("show");
+
+            createHeartExplosion();
+
+        });
+
+
+        /* Corazones flotando */
+
+        function createFloatingHeart() {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className =
+                "floating-heart";
+
+            heart.innerHTML =
+                Math.random() > .5
+                    ? "♡"
+                    : "♥";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                Math.random() * 16 + 12 + "px";
+
+            heart.style.animationDuration =
+                Math.random() * 7 + 7 + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 15000);
+
+        }
+
+
+        setInterval(
+            createFloatingHeart,
+            800
+        );
+
+
+        /* Explosión de corazones */
+
+        function createHeartExplosion() {
+
+            for (let i = 0; i < 20; i++) {
+
+                const heart =
+                    document.createElement("div");
+
+                heart.innerHTML = "❤️";
+
+                heart.style.position =
+                    "fixed";
+
+                heart.style.left =
+                    "50%";
+
+                heart.style.top =
+                    "50%";
+
+                heart.style.fontSize =
+                    Math.random() * 15 + 12 + "px";
+
+                heart.style.zIndex = "20";
+
+                heart.style.pointerEvents =
+                    "none";
+
+                const angle =
+                    Math.random() *
+                    Math.PI *
+                    2;
+
+                const distance =
+                    Math.random() *
+                    230 + 80;
+
+                const x =
+                    Math.cos(angle) *
+                    distance;
+
+                const y =
+                    Math.sin(angle) *
+                    distance;
+
+                heart.animate(
+                    [
+                        {
+                            transform:
+                                "translate(-50%, -50%) scale(0)",
+                            opacity: 1
+                        },
+                        {
+                            transform:
+                                `translate(
+                                    calc(-50% + ${x}px),
+                                    calc(-50% + ${y}px)
+                                )
+                                scale(1)`,
+                            opacity: 0
+                        }
+                    ],
+                    {
+                        duration: 1200,
+                        easing:
+                            "cubic-bezier(.2,.8,.2,1)"
+                    }
+                );
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+
+                    heart.remove();
+
+                }, 1300);
+
+            }
+
+        }
+
+    </script>
 
 </body>
 </html>
