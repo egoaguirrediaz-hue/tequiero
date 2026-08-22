@@ -34,6 +34,13 @@ const btnContinuar =
 const mensajeSorpresa =
     document.getElementById("mensajeSorpresa");
 
+const numeroMensaje =
+    document.getElementById("numeroMensaje");
+
+const totalMensajes =
+    document.getElementById("totalMensajes");
+
+
 const fotoAlbum =
     document.getElementById("fotoAlbum");
 
@@ -57,6 +64,7 @@ function cambiarPantalla(
         "activa"
     );
 
+
     setTimeout(() => {
 
         siguiente.classList.add(
@@ -76,17 +84,21 @@ function crearCorazon() {
     const corazon =
         document.createElement("div");
 
+
     corazon.classList.add(
         "corazon"
     );
 
 
     const corazones = [
+
         "❤️",
         "💕",
         "💗",
         "💖",
-        "💘"
+        "💘",
+        "💞"
+
     ];
 
 
@@ -104,15 +116,17 @@ function crearCorazon() {
 
 
     corazon.style.fontSize =
-        (15 +
-        Math.random() * 20)
-        + "px";
+        (
+            15 +
+            Math.random() * 20
+        ) + "px";
 
 
     corazon.style.animationDuration =
-        (5 +
-        Math.random() * 5)
-        + "s";
+        (
+            5 +
+            Math.random() * 5
+        ) + "s";
 
 
     const contenedor =
@@ -126,6 +140,7 @@ function crearCorazon() {
         contenedor.appendChild(
             corazon
         );
+
     }
 
 
@@ -137,9 +152,13 @@ function crearCorazon() {
 }
 
 
+/* =========================================
+   CORAZONES AUTOMÁTICOS
+========================================= */
+
 setInterval(
     crearCorazon,
-    700
+    800
 );
 
 
@@ -166,26 +185,34 @@ btnComenzar.addEventListener(
 
 const mensajes = [
 
-    "No tienes que estar bien todo el tiempo. ❤️",
+    "Descansa, mi amor. Yo estoy aquí. ❤️",
 
-    "También tienes derecho a tener días difíciles.",
+    "No tienes que sentir que tienes que estar bien todo el tiempo. Ahora lo importante eres tú y que puedas recuperarte tranquilita.",
 
-    "No tienes que poder con todo tú sola.",
+    "Si necesitas hablar, aquí estoy para escucharte. No importa la hora ni el tema.",
 
-    "Si hoy necesitas descansar, descansa.",
+    "Si necesitas distraerte, también estoy. Puedo hacer mi trabajo de payaso un ratito para intentar sacarte una sonrisa. 😂❤️",
 
-    "Si necesitas hablar, aquí estoy.",
+    "Si necesitas cariño, quiero darte todo el que pueda, aunque sea a la distancia.",
 
-    "Y si simplemente necesitas un abrazo... también. 🥰",
+    "Ojalá pudiera estar ahí para abrazarte, consentirte y decirte personalmente que todo poquito a poquito va a estar mejor.",
 
-    "Porque me importas muchísimo.",
+    "No puedo quitarte lo que estás sintiendo, pero sí puedo acompañarte mientras pasa.",
 
-    "Y quiero estar para ti, en los días buenos y en los no tan buenos. ❤️"
+    "No tienes que pasar estos días sintiendo que estás sola. Tienes a alguien que te quiere muchísimo y que está pendiente de ti.",
+
+    "Quiero estar contigo no solamente cuando todo está bonito, sino también cuando necesitas un poquito más de paciencia, cariño y compañía.",
+
+    "Así que por ahora tú concéntrate en descansar y recuperarte. Yo voy a estar aquí para ti. ❤️"
 
 ];
 
 
 let mensajeActual = 0;
+
+
+totalMensajes.textContent =
+    mensajes.length;
 
 
 btnSorpresa.addEventListener(
@@ -210,6 +237,11 @@ btnSorpresa.addEventListener(
                     mensajes[
                         mensajeActual
                     ];
+
+
+                numeroMensaje.textContent =
+                    mensajeActual + 1;
+
 
                 mensajeSorpresa.style.opacity =
                     "1";
@@ -237,29 +269,35 @@ btnSorpresa.addEventListener(
 const fotos = [
 
     {
+
         src:
             "assets/foto1.jpg",
 
         texto:
-            "Cuando estés feliz, quiero estar ahí para celebrar contigo. ❤️"
+            "Quiero volver a verte así de sonriente muy pronto. 🥰❤️"
+
     },
 
 
     {
+
         src:
             "assets/foto2.jpg",
 
         texto:
-            "Cuando tengas un día difícil, quiero que recuerdes que no estás sola. 🥰"
+            "Este es uno de esos momentos que me recuerda lo bonito que es tenerte en mi vida. ❤️"
+
     },
 
 
     {
+
         src:
             "assets/foto3.jpg",
 
         texto:
-            "Y cuando sientas que todo pesa demasiado, puedes apoyarte en mí. Siempre. 💕"
+            "Y mientras te recuperas, quiero que recuerdes que aquí tienes a alguien que te quiere muchísimo. 💕"
+
     }
 
 ];
@@ -272,11 +310,14 @@ let fotoActual = 0;
    MOSTRAR FOTO
 ========================================= */
 
-function mostrarFoto(indice) {
+function mostrarFoto(
+    indice
+) {
 
     fotoAlbum.classList.add(
         "foto-cambiando"
     );
+
 
     fraseAlbum.style.opacity =
         "0";
@@ -287,8 +328,10 @@ function mostrarFoto(indice) {
         fotoAlbum.src =
             fotos[indice].src;
 
+
         fraseAlbum.textContent =
             fotos[indice].texto;
+
 
         contadorFoto.textContent =
             `${indice + 1} / ${fotos.length}`;
@@ -298,6 +341,7 @@ function mostrarFoto(indice) {
             "foto-cambiando"
         );
 
+
         fraseAlbum.style.opacity =
             "1";
 
@@ -306,7 +350,7 @@ function mostrarFoto(indice) {
 
 
 /* =========================================
-   ANTERIOR
+   FOTO ANTERIOR
 ========================================= */
 
 btnAnterior.addEventListener(
@@ -322,6 +366,7 @@ btnAnterior.addEventListener(
 
             fotoActual =
                 fotos.length - 1;
+
         }
 
 
@@ -334,7 +379,7 @@ btnAnterior.addEventListener(
 
 
 /* =========================================
-   SIGUIENTE
+   FOTO SIGUIENTE
 ========================================= */
 
 btnSiguiente.addEventListener(
@@ -350,6 +395,7 @@ btnSiguiente.addEventListener(
         ) {
 
             fotoActual = 0;
+
         }
 
 
@@ -362,7 +408,7 @@ btnSiguiente.addEventListener(
 
 
 /* =========================================
-   CARTA FINAL
+   FINAL
 ========================================= */
 
 btnContinuar.addEventListener(
@@ -375,9 +421,11 @@ btnContinuar.addEventListener(
         );
 
 
+        /* Lluvia de corazones */
+
         for (
             let i = 0;
-            i < 35;
+            i < 45;
             i++
         ) {
 
@@ -389,4 +437,13 @@ btnContinuar.addEventListener(
         }
 
     }
+);
+
+
+/* =========================================
+   MENSAJE DE CONSOLA
+========================================= */
+
+console.log(
+    "❤️ Hecho especialmente para ella."
 );
