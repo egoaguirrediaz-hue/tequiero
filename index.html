@@ -1,89 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, cualquier día 🤍</title>
+    <meta name="theme-color" content="#050916">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <title>Para mi reina ❤️</title>
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 
 <body>
 
-<main id="app">
+    <div id="stars"></div>
 
+    <div class="moon">
+        <div class="moon-glow"></div>
+    </div>
 
-    <!-- =====================================
-         PANTALLA 1
-    ====================================== -->
+    <div class="shooting-stars">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-    <section
-        id="inicio"
-        class="pantalla activa"
-    >
+    <!-- =========================
+         INICIO
+    ========================== -->
 
-        <div class="corazones"></div>
+    <section id="welcome" class="screen active">
 
-        <div class="contenido">
+        <div class="welcome-content">
 
-            <div class="emoji">
-                🌷
+            <div class="small-label">
+                PARA TI
             </div>
 
             <h1>
-                Para mi reina ❤️
+                No necesito<br>
+                una fecha especial.
             </h1>
 
-            <p class="subtitulo">
-                Tengo algo pequeñito para ti...
-            </p>
+            <div class="line"></div>
 
             <p>
-                Sé que estos días no están siendo
-                los más fáciles para ti.
+                Simplemente hoy pensé en ti...
             </p>
 
-            <p>
-                Y aunque quisiera poder quitarte
-                todo lo que estás sintiendo y hacer
-                que te sientas bien inmediatamente,
-                no puedo.
-            </p>
-
-            <p>
-                Pero hay algo que sí puedo hacer.
-            </p>
-
-            <p class="frase-grande">
-                Estar contigo. ❤️
-            </p>
-
-            <p>
-                Quiero que sepas que no tienes que
-                pasar estos días sintiendo que estás
-                sola.
-            </p>
-
-            <p>
-                Aquí estoy yo, para acompañarte,
-                escucharte, consentirte y recordarte
-                cuánto te quiero.
-            </p>
-
-            <button id="btnComenzar">
-                ❤️ Tengo algo más para ti
+            <button id="startButton">
+                Ven, tengo algo para ti
+                <span>→</span>
             </button>
 
         </div>
@@ -91,243 +60,393 @@
     </section>
 
 
-    <!-- =====================================
-         PANTALLA 2
-    ====================================== -->
+    <!-- =========================
+         INTRO
+    ========================== -->
 
-    <section
-        id="sorpresa"
-        class="pantalla"
-    >
+    <section id="intro" class="screen hidden">
 
-        <div class="contenido">
+        <div class="intro-content">
 
-            <div class="emoji">
-                🥰
+            <p id="introText"></p>
+
+            <div class="intro-dots">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
 
-            <h2>
-                Mientras te recuperas...
-            </h2>
+        </div>
 
-            <p
-                id="mensajeSorpresa"
-                class="mensaje-sorpresa"
-            >
-                Descansa, mi amor. Yo estoy aquí. ❤️
-            </p>
+    </section>
 
-            <div class="progreso">
 
-                <span id="numeroMensaje">
-                    1
-                </span>
+    <!-- =========================
+         CIELO
+    ========================== -->
 
+    <main id="experience" class="hidden">
+
+        <section id="sky-section" class="section sky-section">
+
+            <div class="section-content">
+
+                <div class="eyebrow">
+                    ESTA NOCHE
+                </div>
+
+                <h2>
+                    Quédate un ratito...
+                </h2>
+
+                <p class="lead">
+                    No tienes que hacer nada.
+                    Solo mira el cielo.
+                </p>
+
+                <div id="interactiveSky">
+
+                    <button class="star-message star-1" data-message="Me haces feliz."></button>
+                    <button class="star-message star-2" data-message="Me encanta tenerte en mi vida."></button>
+                    <button class="star-message star-3" data-message="Te admiro más de lo que imaginas."></button>
+                    <button class="star-message star-4" data-message="Siempre voy a querer verte bien."></button>
+                    <button class="star-message star-5" data-message="Aquí estoy. Incluso en tus días difíciles."></button>
+                    <button class="star-message star-6" data-message="Eres una parte muy bonita de mi vida."></button>
+
+                    <div id="starMessage"></div>
+
+                </div>
+
+                <p class="hint">
+                    Hay algunas estrellas que guardan algo para ti ✦
+                </p>
+
+                <button class="continue-btn" data-next="care-section">
+                    Sigue conmigo
+                    <span>↓</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CUIDADO
+        ========================== -->
+
+        <section id="care-section" class="section care-section">
+
+            <div class="section-content narrow">
+
+                <div class="eyebrow">
+                    SOLO QUERÍA DECIRTE ALGO
+                </div>
+
+                <div class="typing-area">
+
+                    <p class="typing-line">
+                        Sé que a veces los días pesan.
+                    </p>
+
+                    <p class="typing-line">
+                        Que el trabajo cansa.
+                    </p>
+
+                    <p class="typing-line">
+                        Que hay días en los que simplemente
+                        quieres desconectarte de todo.
+                    </p>
+
+                    <p class="typing-line">
+                        Y no quiero ser una preocupación más.
+                    </p>
+
+                    <p class="typing-line highlight">
+                        Quiero ser ese lugar donde puedas descansar un poquito.
+                    </p>
+
+                </div>
+
+                <button class="continue-btn" data-next="part-section">
+                    Hay algo más
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PARTE IMPORTANTE
+        ========================== -->
+
+        <section id="part-section" class="section part-section">
+
+            <div class="section-content">
+
+                <div class="eyebrow">
+                    Y QUIZÁ ESTO SEA LO MÁS IMPORTANTE
+                </div>
+
+                <div id="revealLove">
+
+                    <p class="reveal-line">
+                        Yo sé que puedo vivir sin ti.
+                    </p>
+
+                    <button id="revealButton">
+                        Toca aquí
+                    </button>
+
+                    <div id="loveAnswer" class="hidden">
+
+                        <p>
+                            Pero no quiero hacerlo.
+                        </p>
+
+                        <div class="heart-line">
+                            <span></span>
+                            ♥
+                            <span></span>
+                        </div>
+
+                        <p class="big-answer">
+                            Porque quiero vivir contigo.
+                        </p>
+
+                        <small>
+                            No porque no pueda estar solo,
+                            sino porque entre todas las personas,
+                            te elegiría a ti.
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <button class="continue-btn hidden" id="partContinue">
+                    Ven, ahora dime algo
+                    <span>↓</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ¿QUÉ NECESITAS?
+        ========================== -->
+
+        <section id="needs-section" class="section needs-section">
+
+            <div class="section-content">
+
+                <div class="eyebrow">
+                    SOLO POR CURIOSIDAD...
+                </div>
+
+                <h2>
+                    ¿Qué necesitas hoy?
+                </h2>
+
+                <p class="lead">
+                    Elige lo que más te gustaría recibir de mí.
+                </p>
+
+                <div class="need-grid">
+
+                    <button class="need-card" data-need="hug">
+                        <span class="need-icon">♡</span>
+                        <strong>Un abrazo</strong>
+                        <small>De esos que duran un poquito más.</small>
+                    </button>
+
+                    <button class="need-card" data-need="rest">
+                        <span class="need-icon">☾</span>
+                        <strong>Descansar</strong>
+                        <small>Hoy no tienes que poder con todo.</small>
+                    </button>
+
+                    <button class="need-card" data-need="talk">
+                        <span class="need-icon">...</span>
+                        <strong>Hablar</strong>
+                        <small>Yo te escucho.</small>
+                    </button>
+
+                    <button class="need-card" data-need="love">
+                        <span class="need-icon">♡</span>
+                        <strong>Sentirme querida</strong>
+                        <small>Déjame recordártelo.</small>
+                    </button>
+
+                </div>
+
+                <div id="needResponse"></div>
+
+                <button class="continue-btn hidden" id="needsContinue">
+                    Una última cosa
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CARTA
+        ========================== -->
+
+        <section id="letter-section" class="section letter-section">
+
+            <div class="letter-card">
+
+                <div class="letter-top">
+                    <span>PARA MI AMOR</span>
+                    <span>♥</span>
+                </div>
+
+                <h2>
+                    No necesito una fecha
+                    para decirte que te amo.
+                </h2>
+
+                <div class="letter-divider"></div>
+
+                <p>
+                    No necesito un aniversario.
+                </p>
+
+                <p>
+                    No necesito que sea nuestro cumpleaños,
+                    ni que el calendario marque algo especial.
+                </p>
+
+                <p>
+                    No necesito una excusa.
+                </p>
+
+                <p>
+                    Te amo porque eres tú.
+                </p>
+
+                <p>
+                    Porque poco a poco te convertiste
+                    en alguien a quien quiero contarle mis cosas,
+                    en alguien cuya sonrisa me importa,
+                    en alguien que quiero cuidar,
+                    acompañar y tener cerquita.
+                </p>
+
+                <p class="strong">
+                    Te convertiste en una parte importante
+                    de mi vida sin que me diera cuenta.
+                </p>
+
+                <p>
+                    Y me haces feliz.
+                    Muchísimo más de lo que a veces sé explicar.
+                </p>
+
+                <p>
+                    Así que si algún día dudas de cuánto significas para mí,
+                    vuelve a este pequeño lugar.
+                </p>
+
+                <p class="strong">
+                    Porque aquí siempre vas a encontrar
+                    la misma respuesta:
+                </p>
+
+                <div class="final-love">
+                    Te amo, mi amor.
+                </div>
+
+            </div>
+
+            <button class="continue-btn" id="finalButton">
+                Quédate con esto
+                <span>↓</span>
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             FINAL
+        ========================== -->
+
+        <section id="final-section" class="section final-section">
+
+            <div class="final-stars"></div>
+
+            <div class="final-content">
+
+                <div class="final-moon">
+                    ☾
+                </div>
+
+                <p class="final-intro">
+                    No importa qué día sea.
+                </p>
+
+                <div class="final-messages">
+
+                    <p>Si estás cansada, estoy.</p>
+                    <p>Si estás feliz, estoy.</p>
+                    <p>Si tienes un día horrible, estoy.</p>
+                    <p>Si no quieres hablar, también estoy.</p>
+                    <p>Si necesitas un abrazo...</p>
+
+                </div>
+
+                <div class="final-divider"></div>
+
+                <p class="final-main">
+                    Siempre voy a querer
+                    que te sientas querida.
+                </p>
+
+                <p class="final-love-big">
+                    Porque te amo.
+                </p>
+
+                <p class="signature">
+                    — Tu gordito
+                    <span>♥</span>
+                </p>
+
+                <button id="hugButton">
+                    Ven por tu abrazo
+                    <span>♡</span>
+                </button>
+
+            </div>
+
+            <div id="hugMessage" class="hug-message hidden">
+                <div class="hug-heart">♡</div>
+                <p>
+                    Ven acá, mi amor...
+                </p>
                 <span>
-                    /
+                    Este abrazo no tiene límite de tiempo.
                 </span>
-
-                <span id="totalMensajes">
-                    10
-                </span>
-
             </div>
 
-            <button id="btnSorpresa">
-                💕 Siguiente
-            </button>
+        </section>
 
-        </div>
-
-    </section>
+    </main>
 
 
-    <!-- =====================================
-         PANTALLA 3
-    ====================================== -->
-
-    <section
-        id="album"
-        class="pantalla"
-    >
-
-        <div class="contenido album-contenido">
-
-            <div class="emoji">
-                📸
-            </div>
-
-            <h2>
-                Para sacarte una sonrisita ❤️
-            </h2>
-
-            <p class="album-intro">
-                Mientras te recuperas, quería
-                dejarte algunos pedacitos de
-                momentos que me hacen pensar
-                en ti.
-            </p>
+    <audio id="music" loop preload="auto">
+        <source src="assets/music/piano.mp3" type="audio/mpeg">
+    </audio>
 
 
-            <div class="foto-container">
-
-                <img
-                    id="fotoAlbum"
-                    src="assets/foto1.jpg"
-                    alt="Un recuerdo contigo"
-                >
-
-            </div>
-
-
-            <p
-                id="fraseAlbum"
-                class="frase-foto"
-            >
-                Quiero volver a verte así de
-                sonriente muy pronto. 🥰
-            </p>
-
-
-            <div class="controles-album">
-
-                <button
-                    id="btnAnterior"
-                    class="boton-secundario"
-                >
-                    ←
-                </button>
-
-                <span id="contadorFoto">
-                    1 / 3
-                </span>
-
-                <button
-                    id="btnSiguiente"
-                    class="boton-secundario"
-                >
-                    →
-                </button>
-
-            </div>
-
-
-            <button id="btnContinuar">
-                💌 Hay algo que quiero decirte
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================
-         PANTALLA 4
-    ====================================== -->
-
-    <section
-        id="final"
-        class="pantalla"
-    >
-
-        <div class="contenido carta">
-
-            <div class="emoji">
-                💗
-            </div>
-
-            <h2>
-                Mi amor, quiero que recuerdes esto
-            </h2>
-
-            <p>
-                Sé que ahora mismo lo más importante
-                es que te recuperes y que te cuides
-                mucho.
-            </p>
-
-            <p>
-                Ojalá pudiera estar ahí físicamente
-                para cuidarte, abrazarte, consentirte
-                y hacerte sentir un poquito mejor.
-            </p>
-
-            <p>
-                Pero mientras tanto, quiero que
-                sepas que estoy aquí.
-            </p>
-
-            <p>
-                No tienes que preocuparte por estar
-                bien para mí.
-            </p>
-
-            <p>
-                Si estás cansada, descansa.
-                Si necesitas dormir, duerme.
-                Si necesitas hablar, háblame.
-                Si necesitas distraerte, aquí estoy.
-            </p>
-
-            <p>
-                Y si simplemente necesitas sentir
-                que alguien está contigo, recuerda
-                que yo estoy aquí.
-            </p>
-
-            <p class="destacado">
-                No puedo quitarte lo que estás
-                sintiendo, pero sí puedo hacerte
-                compañía mientras pasa. ❤️
-            </p>
-
-            <p>
-                Quiero estar para ti en los días
-                bonitos, pero también en estos días
-                en los que necesitas un poquito más
-                de cariño, paciencia y compañía.
-            </p>
-
-            <p>
-                No puedo prometerte que voy a poder
-                solucionar todo, pero sí puedo
-                prometerte que no voy a desaparecer
-                cuando las cosas se pongan difíciles.
-            </p>
-
-            <p>
-                Te quiero muchísimo, mi reina. ❤️
-            </p>
-
-            <p class="mensaje-final">
-                Ahora concéntrate en ponerte bien.
-                <br><br>
-                Yo me encargo de recordarte
-                que eres muy querida. 🥰
-            </p>
-
-            <div class="firma">
-
-                Con todo mi amor,
-
-                <br><br>
-
-                <strong>
-                    Tu amor ❤️
-                </strong>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-</main>
-
-
-<script src="script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
-
 </html>
