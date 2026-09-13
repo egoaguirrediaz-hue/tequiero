@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#090909"
+    >
+
+    <title>Así te veo yo</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================
+         AUDIO
+    ====================================== -->
+
+    <audio
+        id="music"
+        src="assets/piano.mp3"
+        loop
+        preload="auto">
+    </audio>
+
+
+    <!-- =====================================
+         ESCENA 01
+    ====================================== -->
+
+    <main
+        id="scene-intro"
+        class="scene scene-intro active"
+    >
+
+        <div class="intro-content">
+
+            <div class="intro-line"></div>
+
+            <p class="eyebrow">
+                Para ti
+            </p>
+
+            <h1>
+                Tengo algo<br>
+                que quiero que veas.
+            </h1>
+
+            <button
+                id="startButton"
+                class="minimal-button"
+            >
+                MIRAR
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================
+         ESCENA 02 — ESPEJO
+    ====================================== -->
+
+    <section
+        id="scene-mirror"
+        class="scene scene-mirror"
+    >
+
+        <div class="mirror-wrapper">
+
+            <div
+                id="mirror"
+                class="mirror"
+            >
+
+                <div class="mirror-inner">
+
+                    <img
+                        id="girlImage"
+                        src="assets/ella.jpg"
+                        alt="Ella"
+                    >
+
+                    <div class="mirror-reflection"></div>
+
+                    <div class="mirror-shine"></div>
+
+                </div>
+
+            </div>
+
+            <p
+                id="mirrorCaption"
+                class="mirror-caption"
+            >
+                Enfocando...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         ESCENA 03 — COMO LA VES
+    ====================================== -->
+
+    <section
+        id="scene-observation"
+        class="scene scene-observation"
+    >
+
+        <div class="observation-container">
+
+            <div class="observation-image">
+
+                <img
+                    src="assets/ella.jpg"
+                    alt="Ella"
+                >
+
+                <div class="image-overlay"></div>
+
+            </div>
+
+            <div class="observation-copy">
+
+                <span
+                    id="observationNumber"
+                    class="observation-number"
+                >
+                    01
+                </span>
+
+                <p
+                    id="observationText"
+                    class="observation-text"
+                ></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         ESCENA 04 — LO QUE EL ESPEJO NO VE
+    ====================================== -->
+
+    <section
+        id="scene-truth"
+        class="scene scene-truth"
+    >
+
+        <div class="truth-content">
+
+            <p
+                id="truthText"
+                class="truth-text"
+            ></p>
+
+            <button
+                id="truthButton"
+                class="minimal-button hidden"
+            >
+                CONTINUAR
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         ESCENA 05 — FINAL
+    ====================================== -->
+
+    <section
+        id="scene-final"
+        class="scene scene-final"
+    >
+
+        <div class="final-container">
+
+            <div class="final-photo">
+
+                <img
+                    src="assets/ella.jpg"
+                    alt="Mi amor"
+                >
+
+            </div>
+
+            <div class="final-message">
+
+                <p
+                    id="finalText"
+                    class="final-text"
+                ></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

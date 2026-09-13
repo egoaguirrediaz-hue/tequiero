@@ -1,0 +1,715 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    background: #090909;
+
+    color: #f2eee7;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+
+/* =========================================
+   ESCENAS
+========================================= */
+
+.scene {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1.4s ease,
+        visibility 1.4s ease;
+}
+
+.scene.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   ESCENA INTRO
+========================================= */
+
+.scene-intro {
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            #181716 0%,
+            #090909 65%
+        );
+}
+
+.intro-content {
+
+    text-align: center;
+
+    width: min(90%, 700px);
+}
+
+.intro-line {
+
+    width: 1px;
+
+    height: 70px;
+
+    margin: 0 auto 35px;
+
+    background: #827b70;
+
+    opacity: .6;
+
+    animation:
+        lineAppear 2s ease forwards;
+}
+
+.eyebrow {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+
+    color: #9d968c;
+
+    margin-bottom: 30px;
+}
+
+.intro-content h1 {
+
+    font-size:
+        clamp(42px, 7vw, 82px);
+
+    line-height: 1.05;
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 65px;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.minimal-button {
+
+    background: transparent;
+
+    border: 1px solid #686259;
+
+    color: #eeeae3;
+
+    padding: 15px 38px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    cursor: pointer;
+
+    transition:
+        background .4s ease,
+        color .4s ease,
+        border-color .4s ease,
+        transform .4s ease;
+}
+
+.minimal-button:hover {
+
+    background: #eeeae3;
+
+    color: #111;
+
+    border-color: #eeeae3;
+
+    transform: translateY(-2px);
+}
+
+.hidden {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   ESPEJO
+========================================= */
+
+.scene-mirror {
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            #20201e 0%,
+            #0b0b0b 55%,
+            #050505 100%
+        );
+}
+
+.mirror-wrapper {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* Marco */
+
+.mirror {
+
+    width:
+        min(340px, 74vw);
+
+    height:
+        min(480px, 68vh);
+
+    padding: 10px;
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #c1b7a5,
+            #5b554d 30%,
+            #171614 60%,
+            #a99e8c
+        );
+
+    box-shadow:
+
+        0 40px 100px
+        rgba(0, 0, 0, .8),
+
+        0 0 0 1px
+        rgba(255,255,255,.08),
+
+        inset 0 0 25px
+        rgba(255,255,255,.12);
+
+    transform:
+        scale(.92);
+
+    opacity: 0;
+
+    transition:
+        opacity 2s ease,
+        transform 2.5s cubic-bezier(.2,.8,.2,1);
+}
+
+.scene-mirror.active .mirror {
+
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/* Vidrio */
+
+.mirror-inner {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    background: #101010;
+}
+
+
+/* Foto */
+
+.mirror-inner img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(100%)
+        contrast(1.05)
+        brightness(.65);
+
+    opacity: 0;
+
+    transform: scale(1.08);
+
+    transition:
+        opacity 3s ease,
+        transform 7s cubic-bezier(.2,.8,.2,1);
+}
+
+.mirror-inner img.visible {
+
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/* Reflejo */
+
+.mirror-reflection {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,.18),
+            transparent 28%,
+            transparent 70%,
+            rgba(255,255,255,.04)
+        );
+
+    pointer-events: none;
+}
+
+
+/* Brillo que cruza el espejo */
+
+.mirror-shine {
+
+    position: absolute;
+
+    top: -20%;
+
+    left: -100%;
+
+    width: 45%;
+
+    height: 150%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.12),
+            transparent
+        );
+
+    transform: rotate(18deg);
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.scene-mirror.active .mirror-shine {
+
+    animation:
+        mirrorShine 5s ease 2s forwards;
+}
+
+
+/* Texto debajo */
+
+.mirror-caption {
+
+    margin-top: 35px;
+
+    min-height: 20px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #aaa49a;
+
+    opacity: 0;
+
+    transition: opacity 1s ease;
+}
+
+.mirror-caption.visible {
+    opacity: 1;
+}
+
+
+/* =========================================
+   OBSERVACIÓN
+========================================= */
+
+.scene-observation {
+
+    background: #0c0c0c;
+}
+
+.observation-container {
+
+    width:
+        min(1050px, 90vw);
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(250px, 400px)
+        1fr;
+
+    gap: clamp(40px, 8vw, 110px);
+
+    align-items: center;
+}
+
+
+/* Imagen */
+
+.observation-image {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+}
+
+.observation-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(100%)
+        contrast(1.08);
+
+    transform: scale(1.05);
+
+    transition:
+        transform 8s ease;
+}
+
+.scene-observation.active
+.observation-image img {
+
+    transform: scale(1);
+}
+
+
+/* Overlay */
+
+.image-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            transparent 60%,
+            rgba(0,0,0,.5)
+        );
+}
+
+
+/* Texto */
+
+.observation-copy {
+
+    max-width: 570px;
+}
+
+.observation-number {
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #8e887f;
+}
+
+.observation-text {
+
+    font-size:
+        clamp(28px, 4vw, 52px);
+
+    line-height: 1.18;
+
+    font-weight: 400;
+
+    min-height: 180px;
+}
+
+
+/* =========================================
+   VERDAD
+========================================= */
+
+.scene-truth {
+
+    background: #030303;
+}
+
+.truth-content {
+
+    width: min(750px, 90vw);
+
+    text-align: center;
+}
+
+.truth-text {
+
+    font-size:
+        clamp(30px, 5vw, 58px);
+
+    line-height: 1.2;
+
+    font-weight: 400;
+
+    min-height: 180px;
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.scene-final {
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            #181614,
+            #070707 70%
+        );
+}
+
+.final-container {
+
+    width:
+        min(900px, 90vw);
+
+    text-align: center;
+}
+
+.final-photo {
+
+    width:
+        min(260px, 58vw);
+
+    aspect-ratio: 3 / 4;
+
+    margin:
+        0 auto 50px;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform: scale(.96);
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+}
+
+.scene-final.active
+.final-photo {
+
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+.final-photo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(100%)
+        contrast(1.08);
+}
+
+.final-message {
+
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.final-text {
+
+    white-space: pre-line;
+
+    font-size:
+        clamp(24px, 4vw, 43px);
+
+    line-height: 1.5;
+
+    color: #eeeae3;
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes lineAppear {
+
+    from {
+        height: 0;
+        opacity: 0;
+    }
+
+    to {
+        height: 70px;
+        opacity: .6;
+    }
+}
+
+@keyframes mirrorShine {
+
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 150%;
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .intro-content h1 {
+
+        letter-spacing: -1px;
+    }
+
+    .observation-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        text-align: center;
+    }
+
+    .observation-image {
+
+        width: min(230px, 60vw);
+
+        margin: auto;
+    }
+
+    .observation-copy {
+
+        margin: auto;
+    }
+
+    .observation-number {
+
+        margin-bottom: 15px;
+    }
+
+    .observation-text {
+
+        min-height: 130px;
+
+        font-size: 27px;
+    }
+
+    .mirror {
+
+        width: 250px;
+
+        height: 360px;
+    }
+
+    .final-photo {
+
+        width: 210px;
+    }
+}
